@@ -1,0 +1,37 @@
+<div class="container-fluid" id="contain">
+    <h1>Add your details<br><br><a (click)="table()" class="bn5">Here</a>
+    </h1>
+    <div class="card">
+        <div [ngClass]="{'list':bool}">
+            <div class="searchBar w-100">
+                <div class="search float-right" style="display:inline-flex;">
+                    <input type="text" id="search" [(ngModel)]="searchText" class="d-flex">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div><br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let role of promptInfo | filter:searchText   let i=index ">
+                        <td>{{ i + 1}}</td>
+                        <td>{{ role.name }}</td>
+                        <td>{{ role.email }}</td>
+                        <td>{{ role.contact }}</td>
+                        <td>{{ role.address }}</td>
+                        <td><button type="button" (click)="deletUser(i)" style="color: red;background:transparent; border:none;" class="fas fa-trash">
+                        </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
